@@ -8,9 +8,9 @@
   color: $bgd-text-color;
 
   &__logo {
-    font-family: $fontFamily;
+    font-family: Raleway, sans-serif;
     font-size: 26px;
-    line-height: $lineHeight;
+    line-height: 1.2;
     text-decoration: none;
     color: $bgd-text-color;
   }
@@ -21,17 +21,25 @@
 
   &__address,
   &__link {
-    font-weight: $fontWeight;
-    font-size: $fontSize;
-    line-height: 1.7;
-    font-style: $fontStyle;
+    @include font3(400, 14px, 1.7);
+    font-style: normal;
     text-decoration: none;
   }
 }
 
 .page-footer__container {
-  display: flex;
-  align-items: baseline;
+  @media screen and (max-width: 1199px) {
+    text-align: center;
+  }
+
+  @media screen and (min-width: 768px) {
+    @include alignFlex(flex, baseline);
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 }
 
 .page-footer__logo {
@@ -44,7 +52,11 @@
 
 .page-footer__list,
 .page-footer__item {
-  margin-top: 9px;
+  margin-top: 8px;
+
+  @media screen and (min-width: 1200px) {
+    margin-top: 9px;
+  }
 }
 
 .page-footer__link {
@@ -58,21 +70,26 @@
 }
 
 .page-footer__card {
-  margin-right: 70px;
+  @media screen and (min-width: 1200px) {
+    margin-right: 70px;
+  }
 }
 
 /* -------------------Присоединяйтесь------------------ */
 .attach--geometry {
-  margin-right: 93px;
+  @media screen and (max-width: 767px) {
+    margin-top: 60px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-right: 93px;
+  }
 }
 
 .attach {
   &__title {
-    font-weight: 700;
-    font-size: $fontSize;
-    line-height: 1.14;
+    @include font(700, 14px, 1.14, 0.03em);
     text-transform: uppercase;
-    letter-spacing: $letterSpace;
   }
 }
 
@@ -82,6 +99,10 @@
 
 .attach__list {
   display: flex;
+
+  @media screen and (max-width: 767px) {
+    justify-content: center;
+  }
 }
 
 .attach__item {
@@ -117,11 +138,21 @@
 
 /* ------------------------Форма---------------------- */
 .footer-form--geometry {
-  display: flex;
-  align-items: flex-end;
+  @media screen and (max-width: 1199px) {
+    margin-top: 60px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    @include alignFlex(flex, flex-end);
+  }
 }
 
 .footer-form__input {
+  @media screen and (max-width: 1199px) {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
   margin: 0;
   margin-right: 12px;
   padding-left: 16px;
@@ -145,32 +176,22 @@
 
 .footer-form {
   &__title {
-    font-weight: 700;
-    font-size: $fontSize;
-    line-height: 1.14;
-    letter-spacing: $letterSpace;
+    @include font(700, 14px, 1.14, 0.03em);
     text-transform: uppercase;
     color: $bgd-text-color;
   }
   &__input::placeholder {
-    font-weight: $fontWeight;
-    font-size: 16px;
-    line-height: 1.3;
-    letter-spacing: $letterSpace;
+    @include font(400, 16px, 1.3, 0.03em);
     color: rgba(255, 255, 255, 0.6);
   }
   &__button {
     background-color: $accent-color;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-
     cursor: pointer;
   }
   &__submit {
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.9;
+    @include font(700, 16px, 1.9, 0.06em);
     text-align: center;
-    letter-spacing: 0.06em;
     color: $bgd-text-color;
   }
 }
@@ -178,6 +199,10 @@
 .footer-form__title {
   display: flex;
   margin-bottom: 20px;
+
+  @media screen and (max-width: 1199px) {
+    justify-content: center;
+  }
 }
 
 .footer-form__button {

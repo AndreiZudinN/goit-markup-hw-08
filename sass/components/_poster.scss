@@ -1,6 +1,14 @@
 .poster--geometry {
-  padding-top: 200px;
-  padding-bottom: 200px;
+  @media screen and (max-width: 1199px) {
+    padding-top: 118px;
+    padding-bottom: 118px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding-top: 200px;
+    padding-bottom: 200px;
+  }
+
   text-align: center;
 
   max-width: 1600px;
@@ -10,21 +18,76 @@
 
 .poster {
   background-color: #2f303a;
-  background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
-    url(../images/banner.jpg);
+
+  @media screen and (max-width: 767px) {
+    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+      url('../images/poster/poster-480.jpg');
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+      url('../images/poster/poster-768.jpg');
+  }
+
+  @media screen and (min-width: 1200px) {
+    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+      url('../images/poster/poster-1600.jpg');
+  }
+
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 
   &__title {
+    @media screen and (max-width: 1199px) {
+      @include font(900, 26px, 1.6, 0.06em);
+    }
+
+    @media screen and (min-width: 1200px) {
+      @include font(900, 44px, 1.4, 0.06em);
+    }
+
     color: $bgd-text-color;
-    font-weight: 900;
-    font-size: 44px;
-    line-height: 1.4;
     text-align: center;
     text-transform: uppercase;
   }
 }
+
+@media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (-o-min-device-pixel-ratio: 2/1),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .poster {
+    @media screen and (max-width: 767px) {
+      background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+        url('../images/poster/poster@2x-480.jpg');
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+      background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+        url('../images/poster/poster@2x-768.jpg');
+    }
+
+    @media screen and (min-width: 1200px) {
+      background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+        url('../images/poster/poster@2x-1600.jpg');
+    }
+  }
+}
+
+// @media screen and (max-width: 767px) {
+//   @media (min-device-pixel-ratio: 2),
+//     (-webkit-min-device-pixel-ratio: 2),
+//     (-o-min-device-pixel-ratio: 2/1),
+//     (min-resolution: 192dpi),
+//     (min-resolution: 2dppx) {
+//     .poster {
+//       background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+//         url('../images/banner/header@2x-480.jpg');
+//     }
+//   }
+// }
 
 .poster__title {
   margin-bottom: 30px;
@@ -35,9 +98,7 @@
   border: 1px solid transparent;
   border-radius: 4px;
 
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.9;
+  @include font3(700, 16px, 1.9);
   color: $bgd-text-color;
   background-color: $accent-color;
   cursor: pointer;
@@ -89,29 +150,20 @@
   }
 
   &__title {
-    font-weight: 700;
-    font-size: 20px;
-    line-height: $lineHeight;
+    @include font(700, 20px, 1.2, 0.03em);
     text-align: center;
-    letter-spacing: $letterSpace;
     color: $primary-text-color;
   }
 
   &__label {
-    font-weight: $fontWeight;
-    font-size: 12px;
-    line-height: $lineHeight;
-    letter-spacing: 0.01em;
+    @include font(400, 12px, 1.2, 0.01em);
     text-align: start;
     color: $secondary-text-color;
   }
 
   &__send {
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.9;
+    @include font(700, 16px, 1.9, 0.06em);
     text-align: center;
-    letter-spacing: 0.06em;
     color: $bgd-text-color;
   }
 }
@@ -121,8 +173,17 @@
   top: 50%;
   left: 50%;
 
-  max-width: 528px;
-  max-height: 581px;
+  width: 450px;
+
+  @media screen and (max-width: 479px) {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 528px;
+    height: 581px;
+  }
 
   border-radius: 4px;
 
@@ -160,9 +221,15 @@
 
 /* -----------Форма модального окна-------------- */
 .dropdown__form {
-  margin-left: auto;
-  margin-right: auto;
+  // margin-left: auto;
+  // margin-right: auto;
+  margin: auto;
   padding: 40px;
+  // height: 100vh;
+
+  @media screen and (max-width: 479px) {
+    padding: 30px;
+  }
 }
 
 .dropdown__title {
@@ -189,6 +256,10 @@
   margin: 0;
   padding: 11px 12px;
   padding-left: 42px;
+
+  @media screen and (max-width: 479px) {
+    padding: 5px 10px;
+  }
 
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
@@ -220,26 +291,31 @@
   font-size: 100%;
   line-height: 1.15;
 
-  width: 448px;
-  height: 120px;
+  @media screen and (max-width: 1199px) {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 448px;
+  }
 
   resize: none;
+  height: 120px;
 }
 
 .dropdown__input--textarea::placeholder {
-  font-weight: $fontWeight;
-  font-size: 12px;
-  line-height: $lineHeight;
-  letter-spacing: 0.01em;
+  @include font(400, 12px, 1.2, 0.01em);
   color: rgba(117, 117, 117, 0.5);
 }
 
 .agreement {
   &__text {
-    font-weight: $fontWeight;
-    font-size: $fontSize;
-    line-height: 1.7;
-    letter-spacing: $letterSpace;
+    @media screen and (max-width: 1199px) {
+      @include font(400, 12px, 1.7, 0.03em);
+    }
+    @media screen and (min-width: 1200px) {
+      @include font(400, 14px, 1.7, 0.03em);
+    }
     color: $secondary-text-color;
   }
 
@@ -256,8 +332,7 @@
 }
 
 .agreement__label {
-  display: flex;
-  align-items: center;
+  @include alignFlex();
 }
 
 .agreement__input {
